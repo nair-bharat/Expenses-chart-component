@@ -20,11 +20,13 @@
 
   <div class="main-container">
     <header>
-      <div>
-        My balance
-      </div>
-      <div>
-        $921.48
+      <div class="header-text">
+        <div class="text__1">
+          My balance
+        </div>
+        <div class="header-amt">
+          $921.48
+        </div>
       </div>
       <div>
         <span class="circle_first"></span>
@@ -33,18 +35,32 @@
     </header>
    
     <div class="expenses-container">
-      <div class="stats-header">
+      <div class="expenses-header">
         Spending - Last 7 days
       </div>
       <div class="chart">
         <canvas id="canvas"></canvas>
       </div>
+      <hr />
       <div class="monthly-expenses">
-        Total this month
-        $478.33
-  
-        +2.4%
-        from last month
+        <section>
+          <div class="section-text">
+            <div class="text__2">
+              Total this month
+            </div>
+            <div class="section-amt">
+              $478.33
+            </div>
+          </div>
+          <div class="right__content">
+            <div class="text__3">
+              +2.4%
+            </div>
+            <div class="text__4">
+              from last month
+            </div>
+          </div>
+        </section>
       </div>
     </div>
     <div class="attribution">

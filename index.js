@@ -36,7 +36,23 @@ var jsonfile = {
  });
  var data = jsonfile.jsonarray.map(function(e) {
     return e.amount;
- });;
+ });
+
+ Chart.pluginService.register({
+    beforeDraw: function (chart, easing) {
+        if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
+            var helpers = Chart.helpers;
+            var ctx = chart.chart.ctx;
+            var chartArea = chart.chartArea;
+
+            ctx.save();
+            ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
+            ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+            ctx.restore();
+        }
+    }
+});
+
 
 var ctx = canvas.getContext('2d');
 var config = {
@@ -56,6 +72,26 @@ var config = {
     title: {
         display: false,
         text: 'Expenses Data'
+    },
+    chartArea: {
+        backgroundColor: 'white'
+    },
+
+    scales: {
+        xAxes: [{
+            gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            }
+        }],
+        yAxes: [{
+            gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            },
+            ticks: {
+                display: false
+            }
+        }],
+        
     }
 }
 };
